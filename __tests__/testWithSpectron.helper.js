@@ -17,7 +17,7 @@ module.exports = async testRunner => {
   // Copy electron test
   await copyFile(`./generator/templates/tests-${testRunner}/tests/unit/electron.spec.js`, join(project.dir, 'tests/unit/electron.spec.js'))
 
-  // If there is not a second test file, the `serve:electron --headless` process cannot be killed on Windows
+  // If there is not a second test file, the `serve:ow:electron --headless` process cannot be killed on Windows
   // One of the weirdest bugs I've ever seen
   // Without this, tests will fail on Windows
   if (testRunner === 'jest') {

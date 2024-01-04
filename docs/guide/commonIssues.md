@@ -29,7 +29,7 @@ const router = createRouter({
 
 This will have the router operate in hash mode in Electron builds, but won't affect web builds.
 
-## `electron:serve` freezes on `Launching Electron...`
+## `ow:electron:serve` freezes on `Launching Electron...`
 
 Often this issue is caused when Vue Devtools fails to install. This may happen if Vue Devtools cannot be accessed in your location (eg. China). To fix this, you may have to disable Vue Devtools by removing the following lines from your `src/background.(js|ts)` file:
 

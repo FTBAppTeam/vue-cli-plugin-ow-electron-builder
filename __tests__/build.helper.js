@@ -12,7 +12,7 @@ const runTests = async (useTS) => {
   const projectPath = (p) =>
     path.join(process.cwd(), '__tests__/projects/' + projectName, p)
 
-  await project.run('vue-cli-service electron:build --x64 --dir')
+  await project.run('vue-cli-service ow:electron:build --x64 --dir')
   // Ensure /dist is not modified
   expect(project.has('dist')).toBe(false)
   // Ensure build successfully outputted files

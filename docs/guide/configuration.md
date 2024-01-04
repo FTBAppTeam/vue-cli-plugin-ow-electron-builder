@@ -29,7 +29,7 @@ module.exports = {
 ```
 
 :::tip
-All CLI arguments passed to `electron:build` will be forwarded to electron-builder.
+All CLI arguments passed to `ow:electron:build` will be forwarded to electron-builder.
 :::
 
 ## Webpack Configuration
@@ -60,9 +60,9 @@ module.exports = {
       // Provide an array of files that, when changed, will recompile the main process and restart Electron
       // Your main process file will be added by default
       mainProcessWatch: ['src/myFile1', 'src/myFile2'],
-      // Provide a list of arguments that Electron will be launched with during "electron:serve",
+      // Provide a list of arguments that Electron will be launched with during "ow:electron:serve",
       // which can be accessed from the main process (src/background.js).
-      // Note that it is ignored when --debug flag is used with "electron:serve", as you must launch Electron yourself
+      // Note that it is ignored when --debug flag is used with "ow:electron:serve", as you must launch Electron yourself
       // Command line args (excluding --debug, --dashboard, and --headless) are passed to Electron as well
       mainProcessArgs: ['--arg-name', 'arg-value']
     }
@@ -135,7 +135,7 @@ win.loadURL('myCustomProtocol://./index.html') // Change it here as well
 
 ## Bundling Options
 
-By default, the app is built in [modern mode](https://cli.vuejs.org/guide/browser-compatibility.html#modern-mode). To disable this, use the `--legacy` argument in the `electron:build` command. If your app is already bundled and just needs to be built with electron-builder, pass the `--skipBundle` arg.
+By default, the app is built in [modern mode](https://cli.vuejs.org/guide/browser-compatibility.html#modern-mode). To disable this, use the `--legacy` argument in the `ow:electron:build` command. If your app is already bundled and just needs to be built with electron-builder, pass the `--skipBundle` arg.
 
 ## Electron's Junk Terminal Output
 

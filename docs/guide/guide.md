@@ -102,7 +102,7 @@ const win = new BrowserWindow({
 })
 ```
 
-You will need to rerun `electron:serve` for the changes to take effect.
+You will need to rerun `ow:electron:serve` for the changes to take effect.
 
 ## Folder Structure
 
@@ -111,7 +111,7 @@ You will need to rerun `electron:serve` for the changes to take effect.
 │ ├── bundled/..  # where webpack outputs compiled files
 │ ├── [target platform]-unpacked/..  # unpacked Electron app (main app and supporting files)
 │ ├── [application name] setup [version].[target binary (exe|dmg|rpm...)]  # installer for Electron app
-│ ├── index.js  # compiled background file used for electron:serve
+│ ├── index.js  # compiled background file used for ow:electron:serve
 │ └── ...
 ├── public/  # Files placed here will be available through __static or process.env.BASE_URL
 ├── src/

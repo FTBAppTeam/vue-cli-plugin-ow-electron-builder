@@ -2,7 +2,7 @@ const prompts = require('./uiOptions')
 
 module.exports = (api) => {
   api.describeTask({
-    match: /vue-cli-service electron:build/,
+    match: /vue-cli-service ow:electron:build/,
     description: 'Build your app for production with electron-builder',
     link: 'https://nklayman.github.io/vue-cli-plugin-electron-builder/',
     prompts,
@@ -37,7 +37,7 @@ module.exports = (api) => {
     }
   })
   api.describeTask({
-    match: /vue-cli-service electron:serve/,
+    match: /vue-cli-service ow:electron:serve/,
     description: 'Serve your app, launch electron',
     link: 'https://nklayman.github.io/vue-cli-plugin-electron-builder/',
     prompts: [

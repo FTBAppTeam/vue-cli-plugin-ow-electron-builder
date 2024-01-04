@@ -4,7 +4,7 @@ const path = require('path')
 const fs = require('fs-extra')
 
 // Prevent electron-builder from installing app deps
-jest.mock('electron-builder/out/cli/install-app-deps.js')
+jest.mock('@overwolf/ow-electron-builder/out/cli/install-app-deps.js')
 
 const createProject = async (projectName, useTS, customPlugins = {}) => {
   // Prevent modification of import

@@ -68,8 +68,8 @@ module.exports = (api, options = {}) => {
 
   // Add electron-builder install-app-deps to postinstall and postuninstall
   const scripts = {
-    'electron:build': 'vue-cli-service electron:build',
-    'electron:serve': 'vue-cli-service electron:serve'
+    'ow:electron:build': 'vue-cli-service ow:electron:build',
+    'ow:electron:serve': 'vue-cli-service ow:electron:serve'
   }
   const addScript = (name, command) => {
     // Add on to existing script if it exists

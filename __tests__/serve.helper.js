@@ -1,7 +1,7 @@
 const create = require('./createProject.helper.js')
 const path = require('path')
 const Application = require('spectron').Application
-const electronPath = require('electron')
+const electronPath = require('@overwolf/ow-electron')
 const portfinder = require('portfinder')
 const checkLogs = require('./checkLogs.helper.js')
 
@@ -9,7 +9,7 @@ portfinder.basePort = 9515
 const serve = (project, notifyUpdate) =>
   new Promise((resolve, reject) => {
     // --debug to prevent Electron from being launched
-    const child = project.run('vue-cli-service electron:serve --headless')
+    const child = project.run('vue-cli-service ow:electron:serve --headless')
     let log = ''
     child.stdout.on('data', async (data) => {
       data = data.toString()
