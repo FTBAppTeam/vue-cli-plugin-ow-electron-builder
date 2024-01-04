@@ -1,6 +1,6 @@
 {
-  "name": "vue-cli-plugin-electron-builder",
-  "version": "2.1.1",
+  "name": "vue-cli-plugin-ow-electron-builder",
+  "version": "2.2.0-custom",
   "description": "Easily Build Your Vue.js App For Desktop With Electron",
   "main": "index.js",
   "types": "index.d.ts",
@@ -29,9 +29,10 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
+    "@overwolf/ow-electron": "^19.1.0",
+    "@overwolf/ow-electron-builder": "^23.4.1",
     "@vue/cli-shared-utils": "^5.0.5",
     "chokidar": "^3.0.2",
-    "electron-builder": "^23.0.3",
     "execa": "^5.0.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "fs-extra": "^10.0.0",
@@ -63,7 +64,6 @@
     "@vuepress/plugin-google-analytics": "^1.8.0",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
-    "electron": "^13.1.4",
     "electron-devtools-installer": "^3.1.0",
     "eslint": "^7.2.0",
     "eslint-config-standard": "^16.0.2",

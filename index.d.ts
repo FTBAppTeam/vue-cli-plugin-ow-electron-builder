@@ -1,5 +1,5 @@
 import { Application, AppConstructorOptions } from 'spectron'
-import { Configuration as ElectronBuilderOptions } from 'electron-builder'
+import { Configuration as ElectronBuilderOptions } from '@overwolf/ow-electron-builder'
 import * as ChainableWebpackConfig from 'webpack-chain'
 
 interface Options {
@@ -31,12 +31,12 @@ interface Server {
 }
 
 /**
-   Run electron:serve, but instead of launching Electron it returns a Spectron Application instance.
+   Run ow:electron:serve, but instead of launching Electron it returns a Spectron Application instance.
    Used for e2e testing with Spectron.
 */
 export function testWithSpectron(spectron: any, options?: Partial<Options>): Promise<Server>
 
-  
+
 export type PluginOptions = {
   builderOptions?: ElectronBuilderOptions,
   chainWebpackMainProcess?: (config?: ChainableWebpackConfig) => void,

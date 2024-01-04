@@ -56,10 +56,10 @@ module.exports = (api, options) => {
   })
 
   api.registerCommand(
-    'electron:build',
+    'ow:electron:build',
     {
       description: 'build app with electron-builder',
-      usage: 'vue-cli-service build:electron [electron-builder options]',
+      usage: 'vue-cli-service build:ow:electron [electron-builder options]',
       details:
         'All electron-builder command line options are supported.\n' +
         'See https://www.electron.build/cli for cli options\n' +
@@ -68,10 +68,10 @@ module.exports = (api, options) => {
     async (args, rawArgs) => {
       // Use custom config for webpack
       process.env.IS_ELECTRON = true
-      const builder = require('electron-builder')
+      const builder = require('@overwolf/ow-electron-builder')
       const yargs = require('yargs')
       // Import the yargs options from electron-builder
-      const configureBuildCommand = require('electron-builder/out/builder')
+      const configureBuildCommand = require('@overwolf/ow-electron-builder/out/builder')
         .configureBuildCommand
       // Prevent custom args from interfering with electron-builder
       removeArg('--mode', 2, rawArgs)
@@ -269,10 +269,10 @@ module.exports = (api, options) => {
     }
   )
   api.registerCommand(
-    'electron:serve',
+    'ow:electron:serve',
     {
       description: 'serve app and launch electron',
-      usage: 'vue-cli-service serve:electron',
+      usage: 'vue-cli-service serve:ow:electron',
       details:
         'See https://nklayman.github.io/vue-cli-plugin-electron-builder/ for more details about this plugin.'
     },
@@ -493,7 +493,7 @@ module.exports = (api, options) => {
           if (process.platform === 'win32') stdioConfig.push('ipc')
 
           child = execa(
-            require('electron'),
+            require('@overwolf/ow-electron'),
             [
               // Have it load the main process file built with webpack
               outputDir,
@@ -539,20 +539,20 @@ module.exports = (api, options) => {
   )
 
   api.registerCommand(
-    'build:electron',
+    'build:ow:electron',
     {
       description:
-        '[deprecated, use electron:build instead] build app with electron-builder',
-      usage: 'vue-cli-service build:electron [electron-builder options]',
+        '[deprecated, use ow:electron:build instead] build app with electron-builder',
+      usage: 'vue-cli-service build:ow:electron [electron-builder options]',
       details:
         'All electron-builder command line options are supported.\n' +
         'See https://www.electron.build/cli for cli options\n' +
         'See https://nklayman.github.io/vue-cli-plugin-electron-builder/ for more details about this plugin.'
     },
     (args, rawArgs) => {
-      warn('This command is deprecated. Please use electron:build instead.')
+      warn('This command is deprecated. Please use ow:electron:build instead.')
       return api.service.run(
-        'electron:build',
+        'ow:electron:build',
         { ...args, _: ['First arg is removed', ...args._] },
         ['First arg is removed', ...rawArgs]
       )
@@ -560,18 +560,18 @@ module.exports = (api, options) => {
   )
 
   api.registerCommand(
-    'serve:electron',
+    'serve:ow:electron',
     {
       description:
-        '[deprecated, use electron:serve instead] serve app and launch electron',
-      usage: 'vue-cli-service serve:electron',
+        '[deprecated, use ow:electron:serve instead] serve app and launch electron',
+      usage: 'vue-cli-service serve:ow:electron',
       details:
         'See https://nklayman.github.io/vue-cli-plugin-electron-builder/ for more details about this plugin.'
     },
     (args, rawArgs) => {
-      warn('This command is deprecated. Please use electron:serve instead.')
+      warn('This command is deprecated. Please use ow:electron:serve instead.')
       return api.service.run(
-        'electron:serve',
+        'ow:electron:serve',
         { ...args, _: ['First arg is removed', ...args._] },
         ['First arg is removed', ...rawArgs]
       )
@@ -702,9 +702,9 @@ function bundleMain ({
 }
 
 module.exports.defaultModes = {
-  'build:electron': 'production',
-  'serve:electron': 'development',
-  'electron:build': 'production',
-  'electron:serve': 'development'
+  'build:ow:electron': 'production',
+  'serve:ow:electron': 'development',
+  'ow:electron:build': 'production',
+  'ow:electron:serve': 'development'
 }
 module.exports.testWithSpectron = require('./lib/testWithSpectron')
